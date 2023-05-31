@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 public class Example_03 {
     public static void main(String[] args) throws InterruptedException {
@@ -26,25 +28,38 @@ public class Example_03 {
         searchBox.submit();
 
         //çıkan sonuç yazısını konsola yazdırınız
+        List<WebElement> sonucYazisi = driver.findElements(By.className("sg-col-inner"));
+        WebElement sonuc = sonucYazisi.get(0);
+        System.out.println(sonuc.getText());
 
+        // sonuc sayısını yazdırın
+        String sonucSayisi [] = sonuc.getText().split(" ");
+        System.out.println(Arrays.toString(sonucSayisi));//bu kisimda ayirma islemi yaptik kapali kalabilir
+        System.out.println(sonucSayisi[2]);
+
+        // ilk ürünün locatini alın
+        List<WebElement> ilkUrun = driver.findElements(By.className("s-image"));
+        WebElement ilkUrunSonuc = ilkUrun.get(0);
+
+        // ilk ürünün, görünür olup olmadıgını true, false seklinde yazdırın
+        System.out.println(ilkUrunSonuc.isDisplayed());
+
+        // ilk ürünün, erisilebilir olup olmadıgını true, false seklinde yazdırın
+        System.out.println(ilkUrunSonuc.isEnabled());
+
+        // ilk ürünün, secilebilir olup olmadıgını true, false seklinde yazdırın
+        System.out.println(ilkUrunSonuc.isSelected());
+
+        // ilk urune tıklayın
+        ilkUrunSonuc.click();
+        System.out.println("ilk sayfa basligi: " +driver.getTitle());
+        Thread.sleep(2000);
+        driver.navigate().back();
 
         //çıkan ürünlerden ilk 5 tanesine tıklayıp sayfa başlıklarını yazdırınız
-        /*
-        Thread.sleep(2000);
-        for (int i = 1; i <= 5; i++) {
-            String locator = String.format(".s-result-item:nth-child(%d) h2 a", i);
-            WebElement result = driver.findElement(By.cssSelector(locator));
-            result.click();
 
-            // Sayfa başlığını alın ve yazdırın
-            String pageTitle = driver.getTitle();
-            System.out.println(pageTitle);
+        //ikinci urun
 
-            // Önceki sayfaya geri dönün
-            driver.navigate().back();
-        }
-
-         */
 
         // Tarayıcıyı kapatın
       //  driver.quit();
