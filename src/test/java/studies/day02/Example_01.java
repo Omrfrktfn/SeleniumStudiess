@@ -28,11 +28,26 @@ public class Example_01 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-        driver.get( "https://www.heroku.com/home");
-        Thread.sleep(2000);
 
-        WebElement signUp = driver.findElement(By.partialLinkText("Sign up"));
-        signUp.click();
+        //a. http://a.testaddressbook.com adresine gidiniz.
+        driver.get("http://testaddressbook.com");
+
+        //ek bölüm --- çıkan ekranı geçme
+        WebElement adminButon = driver.findElement(By.partialLinkText("Admin Panel"));
+        adminButon.click();
+
+
+        // mail gir
+        WebElement email = driver.findElement(By.id("username"));
+        email.sendKeys("testtechproed@gmail.com");
+
+        //şifre gir
+        WebElement password = driver.findElement(By.id("password"));
+        password.sendKeys("Test1234!");
+
+        //     b. Sing in butonuna basin
+        WebElement signInButton = driver.findElement(By.cssSelector(".login-button.Button.Button--primary.Button--block.m-bottom-2"));
+        signInButton.click();
 
 
 
