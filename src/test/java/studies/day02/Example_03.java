@@ -49,20 +49,31 @@ public class Example_03 {
 
         // ilk ürünün, secilebilir olup olmadıgını true, false seklinde yazdırın
         System.out.println(ilkUrunSonuc.isSelected());
-
+/*
         // ilk urune tıklayın
         ilkUrunSonuc.click();
         System.out.println("ilk sayfa basligi: " +driver.getTitle());
         Thread.sleep(2000);
         driver.navigate().back();
 
+ */
+
         //çıkan ürünlerden ilk 5 tanesine tıklayıp sayfa başlıklarını yazdırınız
 
-        //ikinci urun
+        for (int i = 0; i < 5 ; i++) {
+            List<WebElement> urunler = driver.findElements(By.xpath("//*[@class='a-section aok-relative s-image-fixed-height']"));
+            Thread.sleep(2000);
+            urunler.get(i).click();
+            Thread.sleep(2000);
+            System.out.println((i+1)+". Urun basligi : "+driver.getTitle());
+            driver.navigate().back();
+            Thread.sleep(2000);
+
+        }
 
 
         // Tarayıcıyı kapatın
-      //  driver.quit();
+        driver.quit();
 
     }
 }
