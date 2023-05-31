@@ -6,13 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.List;
 
-public class Example01 {
+public class Example1 {
     public static void main(String[] args) {
-
-
-
         System.setProperty("WebDriver.chrome.driver", "src/resources/drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -43,11 +39,6 @@ public class Example01 {
         //Başlığın Opportunities içerdiğini test edelim
 
         //Tekrar anasayfaya dönelim ve url'in https://techproeducation.com/ olduğunu doğrulayalım
-
-
-
-
-
 
 
     }
