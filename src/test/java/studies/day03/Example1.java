@@ -18,6 +18,8 @@ public class Example1 {
         driver.get("http://techproeducation.com");
 
         //Çıkan reklamı locate edip kapatalım
+        WebElement kapatmatusu= driver.findElement(By.xpath("//*[@class='eicon-close']"));
+        kapatmatusu.click();
 
         //Arama bölümünde qa aratalım
         WebElement aramaMotoru = driver.findElement(By.id("elementor-search-form-9f26725"));
