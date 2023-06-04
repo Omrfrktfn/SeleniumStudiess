@@ -40,14 +40,19 @@ public class Example01 {
 
         //  6. Bulunan sonuc sayisini yazdirin
         WebElement sonucYazisi = driver.findElement(By.xpath("//*[@id='result-stats']"));
-        String sonucSayisi[] = sonucYazisi.getText().split(" ");
-        System.out.println("Sonuc Sayisi = " + sonucSayisi[1]);
+        String sonucSayisi = sonucYazisi.getText().split(" ")[1].replace(".","");
+        System.out.println("Sonuc Sayisi = " + sonucSayisi);
+        int sayi = Integer.parseInt(sonucSayisi);
 
         //7. sonuc sayisinin 10 milyon’dan fazla oldugunu test edin
-        String deger = "10.000.000";
-
-
+        if (sayi > 100000000) {
+            System.out.println("Sonuc sayisi 10 milyondan fazla");
+        }else {
+            System.out.println("Sonuc sayisi 10 milyondan az veya esit");
+        }
 
         //8. Sayfayi kapatin
+        Thread.sleep(1000);
+        driver.close();
     }
 }
