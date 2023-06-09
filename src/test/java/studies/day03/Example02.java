@@ -16,6 +16,7 @@ public class Example02 {
 
         //https://id.heroku.com/login sayfasina gidin
         driver.get("https://id.heroku.com/login");
+        driver.findElement(By.xpath("//*[@id='onetrust-accept-btn-handler']")).click();
 
         //Bir mail adersi giriniz
         WebElement mail = driver.findElement(By.id("email"));
