@@ -22,6 +22,9 @@ public class C02 extends TestBase {
         driver.get("https://the-internet.herokuapp.com/iframe");
         wait(2);
 
+        int iframeCount = driver.findElements(By.tagName("iframe")).size();
+        System.out.println("Toplam iframe sayısı: " + iframeCount);
+
         WebElement baslik = driver.findElement(By.xpath("//h3"));
         String expected = "Editor";
         Assert.assertTrue(baslik.getText().contains(expected));
