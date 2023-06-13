@@ -1,0 +1,19 @@
+Iframe nedir?
+➢ IFrame, bir web sayfasına icine yerlestirilmis baska bir web
+sayfasıdır
+➢ IFrame genellikle bir Web sayfasına dokuman, video veya
+interaktif media gibi başka bir kaynaktan içerik eklemek için
+kullanılır.
+
+Bir sayfada iframe varsa, Selenium bir iframe içindeki elementleri doğrudan göremez
+● switchTo( ) mettod’u ile iframe’e gecmenin 3 yolu vardir;
+1.) index ile :
+driver.switchTo( ).frame(index of the iframe); //index 0’dan baslar
+2.) id veya name value ile
+driver.switchTo( ).frame("id of the iframe");
+3 ) WebElement ile
+driver.switchTo( ).frame(WebElement of the iframe);
+
+Iframe’den cikmak icin 2 komut vardir
+driver.switchTo( ).parentFrame( ); 1 ust seviyedeki frame’e cikartir
+driver.switchTo( ).defaultContent( ); En ustteki frame’e cikmak icin kullanilir
