@@ -73,7 +73,7 @@ public class C02 extends TestBase {
         FileInputStream fis = new FileInputStream("src/test/java/excell/ulkeler.xlsx");
         Workbook workbook = WorkbookFactory.create(fis);
 
-        String email2 = workbook.getSheet("Sheet1").getRow(1).getCell(1).toString();
+        String email2 = workbook.getSheet("Sayfa1").getRow(3).getCell(5).toString();
         //String parola = workbook.getSheet("Sheet1").getRow(1).getCell(2).toString();
 
 //        7. Click 'login' button
