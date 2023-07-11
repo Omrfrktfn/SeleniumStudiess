@@ -33,12 +33,13 @@ public class C01 extends TestBase {
     ExtentReports extentReports; // --> Raporlamayi baslatmak icin kullanilan class
     ExtentHtmlReporter extentHtmlReporter;// -->Raporu HTML formatinda duzenler
     ExtentTest extentTest;// --> Test adimlarina eklemek istedigimiz bilgileri bu class ile olustururuz.
+
     @Test
     public void test01() throws IOException {
 
         extentReports = new ExtentReports();
         String date1 = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date()); // tarihle ilgili yeni bir format
-        String dosyaYolu1 = "testOutput/extentReports/extentReport"+date1+".html";
+        String dosyaYolu1 = "testOutput/extentReports/extentReport" + date1 + ".html";
         extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu1);
         extentReports.attachReporter(extentHtmlReporter);//-->HTML formatinda raporlamayi baslatacak.
 
@@ -94,7 +95,7 @@ public class C01 extends TestBase {
 
         Set<String> windows = driver.getWindowHandles();
         for (String w : windows) {
-            System.out.println(w);
+          //  System.out.println(w);
             if (!w.equals(sayfa1Handle)) {
                 driver.switchTo().window(w);
             }
@@ -104,12 +105,12 @@ public class C01 extends TestBase {
         System.out.println("sayfa2Handel degeri: " + sayfa2Handle);
         extentTest.info("sayfa 2 handle degeri alindi...");
 
-      //  driver.findElement(By.xpath("//*[text()='chromedriver_win32.zip']")).click();
-        // wait(5);
+        driver.findElement(By.xpath("//*[text()='chromedriver_win32.zip']")).click();
+         wait(5);
+
+
 
         extentReports.flush(); // bu methodu kullanmazsak raporumuz olusmaz
-
-
 
 
     }
